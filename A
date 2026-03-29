@@ -1,0 +1,26 @@
+$validated = $request->validate([             'nis' => ['required', 'string', 'unique:students,nis'],             'name' => ['required', 'string', 'max:255'],             'class' => ['required', 'string', 'max:255'],         ]);         Student::create($validated);         return redirect()->route('admin.students.index')->with('message', 'Siswa berhasil ditambahkan.');
+
+Route::resource('admin/categories', AdminCategoryController::class)->only(['index', 'store', 'update', 'destroy'])->names([         'index' => 'admin.categories.index',         'store' => 'admin.categories.store',         'update' => 'admin.categories.update',         'destroy' => 'admin.categories.destroy',     ]);
+
+1. buat folder di D, misalnya "ukk_gw"
+2. masuk ke folder "ukk_gw", ketik cmd diatas
+3. ketik composer create-project itsazni/ukk
+4. ketik cd ukk
+5. ketik npm install
+6. ketik code .
+7. buat database di phpmyadmin (misalnya db_ukk)
+8. buka file .env terus update DB_DATABASE nya jadi database yang kalian buat (db_ukk)
+9. di cmd ketik php artisan migrate:fresh --seed
+10. buka folder ukk_gw (di D yang kalian buat tadi)
+11. masuk ke folder ukk (yang ada didalam folder ukk_gw)
+12. ketik cmd lagi di atas kaya step nomor 2
+13. ketik npm php artisan serve
+14. di cmd satunya ketik npm run dev
+
+email: admin@sekolah.edu
+password: password
+
+app/Http/Controllers/Admin/StudentController.php
+routes/web.php
+
+tweakcn
